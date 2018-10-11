@@ -1,1 +1,1 @@
-web: gunicorn mfscrm2.wsgi --log-file –
+web: gunicorn mavapp.wsgi --log-file –
