@@ -5,16 +5,28 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.name
+
 class Style(models.Model):
     name = models.CharField(max_length=30)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name + ' - (' + self.category + ')'
 
 class Feature(models.Model):
     name = models.CharField(max_length=30)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name + ' - (' + self.category + ')'
+
 class Brand(models.Model):
     name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
 
 class Appliance(models.Model):
     name = models.CharField(max_length=30)
@@ -22,6 +34,9 @@ class Appliance(models.Model):
     price = models.DecimalField(max_digits=10,decimal_places=2)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 class AppliaceFeature(models.Model):
     appliance = models.ForeignKey(Appliance, on_delete=models.CASCADE)
