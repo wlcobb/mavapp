@@ -13,7 +13,7 @@ class Style(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name + ' - (' + self.category + ')'
+        return self.name + ' -  (' + self.category + ')'
 
 class Feature(models.Model):
     name = models.CharField(max_length=30)
